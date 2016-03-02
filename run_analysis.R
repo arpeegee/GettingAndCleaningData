@@ -79,10 +79,12 @@ colnames(merged_data_subset_actlabels) <- column_names
 # Step 5 - From the data set in step 4, creates a second, independent tidy
 # data set with the average of each variable for each activity and each subject.
 
+# group and summarise
 GroupedData <- group_by(.data = merged_data_subset_actlabels,
                         Subject, ActivityLabel)
 TidyData <- summarise_each(tbl = GroupedData,
                            funs(mean))
 
-
-
+# export
+write.table(x = TidyData,
+            file = "TidyData.txt")
