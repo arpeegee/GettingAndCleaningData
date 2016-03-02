@@ -89,4 +89,5 @@ TidyData <- summarise_each(tbl = GroupedData,
 
 # export
 write.table(x = TidyData,
-            file = "TidyData.txt")
+            file = "TidyData.txt",
+            row.names = FALSE)
